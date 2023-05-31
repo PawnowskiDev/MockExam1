@@ -9,19 +9,29 @@ import java.util.Scanner;
 public class Main04 {
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Insert size of array: ");
-        int arraySize = scan.nextInt();
-        int[] array = returnTab(arraySize);
-        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(returnTab()));
 
     }
-    static int[] returnTab(int n) {
+    static int[] returnTab() {
 
-        int[] array = new int[n];
+        System.out.println("Input size of Array: ");
+        int size = getInt();
+
+        int[] array = new int[size];
         for (int i = 0; i < array.length; i++){
             array[i] = i + 1;
         }
         return array;
+    }
+
+    static int getInt() {
+        Scanner scanner = new Scanner(System.in);
+        int size ;
+        while (!scanner.hasNextInt()) {
+            System.out.println("Waiting for a number!");
+            scanner.nextInt();
+        }
+        size = scanner.nextInt();
+        return size;
     }
 }
